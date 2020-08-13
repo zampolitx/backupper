@@ -1,0 +1,5 @@
+/home/zampolit/Документы/
+/home/zampolit/Dropbox/
+/home/zampolit/Scripts/
+/home/zampolit/Scripts/WORKING/backup_ver2.py
+
