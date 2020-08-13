@@ -16,9 +16,9 @@ zip_path = "/home/zampolit/" # Путь для сохранения zip файл
 ### Секция импорта ###
 import os, zipfile, datetime
 ######################
-lines = [line.rstrip('\n') for line in open(combo_file)]
-zip_date = str(datetime.date.today())
-zip_name = 'Backup_' + zip_date + ".zip"
+lines = [line.rstrip('\n') for line in open(combo_file)]                        # Мы получаем список файлов и директорий, которые нужно архивировать
+zip_date = str(datetime.date.today())                                           # Получаем текущую дату и время, для формирования имени zip файла
+zip_name = 'Backup_' + zip_date + ".zip"                                        # Строка с названием zip файла
 
 for i in lines:
     if os.path.isfile(i):
