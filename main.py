@@ -30,7 +30,10 @@ for i in lines:
 print(zip_name, 'Так будет называться архив')
 print(lines, 'Это список файлов и каталогов, которые нужно добавить в архив')
 print(zip_path, 'Сюда будет сохраняться архив')
+z = zipfile.ZipFile('spam.zip', 'w')
+for k in lines:
 
-tree = os.walk('/home/zampolit/Scripts')
-for i in tree:
-    print(i)
+    for root,dirs, files in os.walk(k):
+        for file in files:
+            z.write(os.path.join(root, file))
+z.close()
