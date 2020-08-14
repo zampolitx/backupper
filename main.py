@@ -11,7 +11,7 @@
 """
 ### Секция настроек###
 combo_file = "backup_list.txt" # Файл со списком директорий и файлов, которые должны попасть в архив
-zip_path = "/home/zampolit/" # Путь для сохранения zip файла
+zip_path = "/home/zampolit/Backup/" # Путь для сохранения zip файла
 ######################
 ### Секция импорта ###
 import os, zipfile, datetime
@@ -21,7 +21,7 @@ zip_date = str(datetime.date.today())                                           
 zip_name = zip_path + 'Backup_' + zip_date + ".zip"                             # Строка с названием zip файла
 z = zipfile.ZipFile(zip_name, 'w')
 for k in lines:
-    for root,dirs, files in os.walk(k):
+    for root, dirs, files in os.walk(k):
         for file in files:
             z.write(os.path.join(root, file))
 z.close()
