@@ -18,21 +18,9 @@ import os, zipfile, datetime
 ######################
 lines = [line.rstrip('\n') for line in open(combo_file)]                        # Мы получаем список файлов и директорий, которые нужно архивировать
 zip_date = str(datetime.date.today())                                           # Получаем текущую дату и время, для формирования имени zip файла
-zip_name = 'Backup_' + zip_date + ".zip"                                        # Строка с названием zip файла
-
-for i in lines:
-    if os.path.isfile(i):
-        print(i, 'Это файл')
-    elif os.path.isdir(i):
-        print(i, 'это папка')
-    else: print(i, 'Это непонятно что')
-
-print(zip_name, 'Так будет называться архив')
-print(lines, 'Это список файлов и каталогов, которые нужно добавить в архив')
-print(zip_path, 'Сюда будет сохраняться архив')
-z = zipfile.ZipFile('spam.zip', 'w')
+zip_name = zip_path + 'Backup_' + zip_date + ".zip"                             # Строка с названием zip файла
+z = zipfile.ZipFile(zip_name, 'w')
 for k in lines:
-
     for root,dirs, files in os.walk(k):
         for file in files:
             z.write(os.path.join(root, file))
