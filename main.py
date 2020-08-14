@@ -30,3 +30,7 @@ for i in lines:
 print(zip_name, 'Так будет называться архив')
 print(lines, 'Это список файлов и каталогов, которые нужно добавить в архив')
 print(zip_path, 'Сюда будет сохраняться архив')
+
+tree = os.walk('/home/zampolit/Scripts')
+for i in tree:
+    print(i)
